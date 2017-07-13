@@ -1,8 +1,8 @@
 {
-  "name": "electron-react-boilerplate",
-  "productName": "ElectronReact",
+  "name": "iota-ez-wallet",
+  "productName": "IotaEzWallet",
   "version": "0.12.0",
-  "description": "Electron application boilerplate based on React, React Router, Webpack, React Hot Loader for rapid application development",
+  "description": "Easily manage IOTA tokens",
   "scripts": {
     "test": "cross-env NODE_ENV=test BABEL_DISABLE_CACHE=1 node --trace-warnings ./test/runTests.js",
     "test-all": "npm run lint && npm run flow && npm run test && npm run build && npm run test-e2e",
@@ -85,15 +85,10 @@
     "url": "https://github.com/chentsulin/electron-react-boilerplate/issues"
   },
   "keywords": [
-    "electron",
-    "boilerplate",
-    "react",
-    "redux",
-    "flow",
-    "sass",
-    "webpack",
-    "hot",
-    "reload"
+    "iota",
+    "wallet",
+    "crypto",
+    "currency"
   ],
   "homepage": "https://github.com/chentsulin/electron-react-boilerplate#readme",
   "jest": {
