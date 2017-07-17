@@ -4,9 +4,15 @@ import { connect } from 'react-redux'
 
 import { createSeed } from '../actions'
 
+import styles from './Initialize.scss'
 
-const InitializationStep = ({ isComplete, isExecuting, name, text, }) =>
-  <li>{text}</li>
+const InitializationStep = ({ isComplete, isExecuting, name, text, }) => {
+
+
+  return (
+    <li>{text}</li>
+  )
+}
 
 export class Initialize extends Component {
   componentDidMount() {
@@ -22,19 +28,20 @@ export class Initialize extends Component {
       name: 'CreatingSeed',
     }]
     return (
-      <div>
-        <h2>Initializing</h2>
-        <ul>
-          {steps.map(s => <InitializationStep {...s} key={s.name} />)}
-        </ul>
-        <div>Seed: {seed}</div>
+      <div className={styles.fullscreen}>
+        <div className={styles.initializeContent}>
+          <h2>Initializing wallet for first time use</h2>
+          <ul>
+            {steps.map(s => <InitializationStep {...s} key={s.name} />)}
+          </ul>
+          <div>Seed: {seed}</div>
+        </div>
       </div>
     )
   }
 }
 
 export default connect(state => {
-  console.log(state)
   return state.initialize
 }, dispatch => ({
   createSeed: () => dispatch(createSeed())
