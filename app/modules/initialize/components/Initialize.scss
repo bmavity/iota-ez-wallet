@@ -9,3 +9,9 @@
 .initializeContent {
   color: #fff;
 }
+
+:global(.pacman-progress) {
+	bottom: auto;
+	position: relative;
+	top: 25px;
+}
