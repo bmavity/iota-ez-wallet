@@ -3,13 +3,6 @@ import PropTypes from 'prop-types'
 
 
 export default class PacmanProgress extends Component {
-  static props: {
-    classNamespace: PropTypes.string,
-    items: PropTypes.number.isRequired,
-    currentIndex: PropTypes.number.isRequired,
-    onClick: PropTypes.func
-  }
-
   static defaultProps = {
     classNamespace: '',
     onClick: () => {},

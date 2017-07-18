@@ -18,24 +18,22 @@ export class Initialize extends Component {
     this.props.createSeed()
   }
 
-  handleClick(evt, index) {
-    evt.preventDefault()
-    this.setState(s => ({ index: s.index += 1 }))
-  }
-
   render() {
-    const { seed } = this.props
+    const { completionPercentage, seed, } = this.props
+    const itemCount = 10
+    const currentIndex = ((itemCount * completionPercentage) / 100) - 1
     const steps = [{
       isComplete: false,
       isExecuting: false,
       text: 'Creating Seed',
       name: 'CreatingSeed',
     }]
+
     return (
       <div className={styles.fullscreen}>
         <div className={styles.initializeContent}>
-          <h3 onClick={evt => this.handleClick(evt, this.state.index)}>Initializing wallet for first time use</h3>
-          <PacmanProgress items={10} currentIndex={this.state.index} />
+          <h3>Initializing wallet for first time use</h3>
+          <PacmanProgress items={itemCount} currentIndex={currentIndex} />
         </div>
       </div>
     )

@@ -11,7 +11,7 @@
 }
 
 :global(.pacman-progress) {
-	bottom: auto;
-	position: relative;
+	bottom: auto !important;
+	position: relative !important;
 	top: 25px;
 }

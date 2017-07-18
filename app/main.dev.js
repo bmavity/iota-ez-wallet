@@ -75,6 +75,14 @@ app.on('ready', async () => {
     }
     mainWindow.show();
     mainWindow.focus();
+
+    let percentage = 0
+    setInterval(() => {
+      if (percentage < 100) {
+        percentage += 10
+        mainWindow.webContents.send('initializationProgress', percentage)
+      }
+    }, 3000)
   });
 
   mainWindow.on('closed', () => {
