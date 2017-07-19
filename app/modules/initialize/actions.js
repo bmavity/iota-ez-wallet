@@ -1,7 +1,7 @@
 // @flow
 import { remote } from 'electron'
 
-const generateSeed = remote.require('./generateSeed')
+const initializeNewWallet = remote.require('./modules/initialize/initializationProcess').default
 
 export const CREATE_SEED = 'initalize/CREATE_SEED'
 export const CREATE_SEED_SUCCESSFUL = 'initalize/CREATE_SEED_SUCCESSFUL'
@@ -16,8 +16,8 @@ export const createSeed = () =>
     dispatch(creatingSeed())
 
     try {
-      const seed = await generateSeed()
-      dispatch(createSeedSuccessful(seed))
+      const initializeResult = await initializeNewWallet()
+      dispatch(createSeedSuccessful(initializeResult))
     } catch (err) {
       dispatch(createSeedUnsuccessful(err))
     }
