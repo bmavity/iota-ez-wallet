@@ -184,6 +184,7 @@
     "font-awesome": "^4.7.0",
     "history": "^4.6.1",
     "iota-seed-generator": "^1.0.0",
+    "iota.lib.js": "^0.3.7",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
