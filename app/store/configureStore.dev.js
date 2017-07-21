@@ -1,17 +1,14 @@
 import { createStore, applyMiddleware, compose } from 'redux'
-import createIpc from 'redux-electron-ipc'
 import thunk from 'redux-thunk'
 import { createHashHistory } from 'history'
 import { routerMiddleware, routerActions } from 'react-router-redux'
 import { createLogger } from 'redux-logger'
 
-import initializeModule from '../modules/initialize'
 import rootReducer from '../reducers'
 import * as counterActions from '../actions/counter'
+import initialize from '../modules/initialize'
 import type { counterStateType } from '../reducers/counter'
 
-
-const { initializationProgress } = initializeModule.actions
 
 const history = createHashHistory()
 
@@ -22,12 +19,6 @@ const configureStore = (initialState?: counterStateType) => {
 
   // Thunk Middleware
   middleware.push(thunk)
-
-  // IPC Middleware
-  const ipc = createIpc({
-    initializationProgress: (event, ...args) => initializationProgress(...args),
-  })
-  middleware.push(ipc)
 
   // Logging Middleware
   const logger = createLogger({
@@ -43,6 +34,7 @@ const configureStore = (initialState?: counterStateType) => {
   // Redux DevTools Configuration
   const actionCreators = {
     ...counterActions,
+    ...initialize.actions,
     ...routerActions,
   }
   // If Redux DevTools Extension is installed use it, otherwise use Redux compose

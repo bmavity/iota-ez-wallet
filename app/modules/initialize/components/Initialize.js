@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PacmanProgress from '../../../../module_overrides/react-pacman-progress'
 
-import { createSeed } from '../actions'
+import { createNewWallet } from '../actions'
 
 import styles from './Initialize.scss'
 
@@ -15,11 +15,11 @@ export class Initialize extends Component {
   }
 
   componentDidMount() {
-    this.props.createSeed()
+    this.props.createNewWallet()
   }
 
   render() {
-    const { completionPercentage, seed, } = this.props
+    const { completionPercentage, } = this.props
     const itemCount = 10
     const currentIndex = ((itemCount * completionPercentage) / 100) - 1
     const steps = [{
@@ -43,5 +43,5 @@ export class Initialize extends Component {
 export default connect(state => {
   return state.initialize
 }, dispatch => ({
-  createSeed: () => dispatch(createSeed())
+  createNewWallet: () => dispatch(createNewWallet())
 }))(Initialize)

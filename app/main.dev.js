@@ -12,7 +12,8 @@
  */
 import { app, BrowserWindow } from 'electron'
 
-import * as registrar from './modules/initialize/initializationProcess'
+import './initializeModules'
+import { registerMainWindow } from './ipcRegistrar'
 import MenuBuilder from './menu'
 
 
@@ -87,5 +88,5 @@ app.on('ready', async () => {
   const menuBuilder = new MenuBuilder(mainWindow)
   menuBuilder.buildMenu()
 
-  registrar.registerMainWindow(mainWindow.webContents)
+  registerMainWindow(mainWindow.webContents)
 })
