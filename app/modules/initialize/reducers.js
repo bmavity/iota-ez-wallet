@@ -1,24 +1,27 @@
 // @flow
 import * as t from './actions'
-import type { State } from './model'
+
+export type State = {
+  completionPercentage: ?number,
+  isInitializing: boolean,
+  newWalletCreationComplete: boolean
+};
 
 const initialState: State = {
   completionPercentage: null,
-  currentStep: 'Initializing',
-  hasCreatedSeed: false,
-  seed: null,
+  isInitializing: false,
+  newWalletCreationComplete: false,
 }
 
 
-export default (state: State = initialState, action: any): State => {
+export default (state: State = initialState, action: t.Action): State => {
   switch (action.type) {
-    case t.CREATING_SEED:
-      return { ...state, currentStep: 'CreatingSeed', }
-    case t.CREATE_SEED_SUCCESSFUL:
+    case t.CREATING_NEW_WALLET:
+      return { ...state, isInitializing: true }
+    case t.CREATE_NEW_WALLET_SUCCESSFUL:
       return {
         ...state,
-        hasCreatedSeed: true,
-        seed: action.payload.seed,
+        newWalletCreationComplete: true,
       }
     case t.INITIALIZATION_PROGRESS:
       return {
