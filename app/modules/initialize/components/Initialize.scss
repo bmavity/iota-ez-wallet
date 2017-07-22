@@ -1,0 +1,17 @@
+.fullscreen {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+}
+
+.initializeContent {
+  color: #fff;
+}
+
+:global(.pacman-progress) {
+	bottom: auto !important;
+	position: relative !important;
+	top: 25px;
+}
