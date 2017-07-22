@@ -20,7 +20,7 @@ export class Initialize extends Component {
 
   render() {
     const { completionPercentage, } = this.props
-    const itemCount = 10
+    const itemCount = 25
     const currentIndex = ((itemCount * completionPercentage) / 100) - 1
     const steps = [{
       isComplete: false,

@@ -8059,6 +8059,10 @@ timers-browserify@^2.0.2:
   dependencies:
     setimmediate "^1.0.4"
 
+tiny-worker@^2.1.1:
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/tiny-worker/-/tiny-worker-2.1.1.tgz#0546f1437e43b9de253efaad235047677d73565b"
+
 tmp@^0.0.31:
   version "0.0.31"
   resolved "https://registry.yarnpkg.com/tmp/-/tmp-0.0.31.tgz#8f38ab9438e17315e5dbd8b3657e8bfb277ae4a7"
